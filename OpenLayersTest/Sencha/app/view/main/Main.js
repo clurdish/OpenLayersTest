@@ -5,6 +5,14 @@ Ext.define('OpenLayersTest.view.main.Main', {
     viewModel: 'main',
     id: 'main-view',
 
+    requires: ['OpenLayersTest.view.main.MainController'],
+
+    controller: 'main',
+
+    listeners: {
+        select: 'onSelect'
+    },
+
     layout: {
         type: 'border',
         regionWeights: {
@@ -17,22 +25,21 @@ Ext.define('OpenLayersTest.view.main.Main', {
 
     items: [
         {
-            // menu
             xtype: 'custom-nav-bar',
             width: 330,
             region: 'west'
         },
         {
-            //map
             xtype: 'ol-map',
-            region: 'center'
+            region: 'center',
+            
         },
         {
             xtype: 'grid-view',
-            region: 'south'
+            region: 'south',
+            bind: {
+                store: '{userdrawings}'
+            }
         }
-            
-            
-        
     ]
 });

@@ -3,6 +3,10 @@ Ext.define('OpenLayersTest.view.map.MapController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.map',
 
+    init: function() {
+        this.getView().enableBubble('select');
+    },
+
     afterRender: function () {
         var me = this,
             view = me.getView(),
@@ -18,7 +22,7 @@ Ext.define('OpenLayersTest.view.map.MapController', {
         viewModel.bind('{zipCodes}',  function (zipCodes)  { view.zipCodes.setVisible(zipCodes) });
         viewModel.bind('{timeZones}', function (timeZones) { view.timeZones.setVisible(timeZones) });
         viewModel.bind('{majorCities}', function (majorCities) { view.majorCities.setVisible(majorCities) });
-        viewModel.bind('{drawing}', function (drawing) {
+        viewModel.bind('{drawing}',   function (drawing) {
             view.drawLayer.setVisible(drawing);
             view.drawFeature.setActive(drawing);
         });
@@ -75,7 +79,7 @@ Ext.define('OpenLayersTest.view.map.MapController', {
             info = WMSsource.getGetFeatureInfoUrl(coordinate, resolution, projection, {
                 'INFO_FORMAT': 'application/json',
                 'QUERY_LAYERS': qLayers,
-                'layers': qLayers,
+                'LAYERS': qLayers,
                 'EXCEPTIONS': 'application/json'
             });
             Ext.Ajax.request({
@@ -91,14 +95,13 @@ Ext.define('OpenLayersTest.view.map.MapController', {
 
                         switch (layername) {
                             case 'ne_10m_populated_places':
-                                {
-                                    city = properties.NAME,
-                                    country = properties.SOV0NAME;
+                            {
+                                city = properties.NAME,
+                                country = properties.SOV0NAME;
 
-                                    popupText += (city + ', ' + country + '<br>');
-                                    break;
-                                }
-
+                                popupText += (city + ', ' + country + '<br>');
+                                break;
+                            }
                         }
                     }
 
@@ -116,10 +119,6 @@ Ext.define('OpenLayersTest.view.map.MapController', {
         }
     },
 
-    onDrawEnd: function () {
-
-    },
-
     onMapClick: function (evt) {
         var map = evt.map,
             drawClick = false;
@@ -134,11 +133,15 @@ Ext.define('OpenLayersTest.view.map.MapController', {
 
     },
 
-    onZoom: function () {
+    onSelect: function(evt) {
+        this.getView().fireEvent('select', this.getView().map, evt);
+    },
+    
+    onZoom: function () {/*
         var view = this.getView(),
             map = view.map,
             mapView = map.getView();
 
-        //console.log("Zoom: " + mapView.getZoom() + " - Resolution: " + mapView.getResolution());
+        //console.log("Zoom: " + mapView.getZoom() + " - Resolution: " + mapView.getResolution());*/
     }
 });

@@ -6,7 +6,7 @@
         if (!opt)
             return '';
 
-        var properties = Object.getOwnPropertyNames(opt),
+        var properties = Ext.Object.getAllKeys(opt),//Object.getOwnPropertyNames(opt),
             handled = ['version', 'url'],
             encodedProperties = [],
             url, result;

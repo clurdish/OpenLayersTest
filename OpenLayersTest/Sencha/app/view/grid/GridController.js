@@ -6,7 +6,7 @@
      * Called when the view is created
      */
     init: function () {
-
+        
     },
 
     onCellClick: function (table, td, cellIndex, record, tr, rowIndex, e, eOpts) {
@@ -18,7 +18,7 @@
         if (interaction instanceof ol.interaction.Select)
         {
             features = interaction.getFeatures();
-            newSelection = mapView.drawSource.getFeatureById('user_drawings.' + record.id);
+            newSelection = mapView.drawSource.getFeatureById(record.id);
             featureExtent = newSelection.getGeometry().getExtent();
             mapExtent = map.getView().calculateExtent(map.getSize());
 

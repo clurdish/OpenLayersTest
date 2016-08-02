@@ -153,6 +153,7 @@ Ext.define('OpenLayersTest.view.map.Map', {
         });
 
         me.drawFeature = new ol.interaction.Select(); // default
+        me.drawFeature.on('select', me.getController().onSelect, me.getController());
         me.dragBox = new ol.interaction.DragBox({
             condition: ol.events.condition.platformModifierKeyOnly
         });

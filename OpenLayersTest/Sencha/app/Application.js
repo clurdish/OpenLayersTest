@@ -9,22 +9,19 @@ Ext.define('OpenLayersTest.Application', {
         'nav.NavBar',
         'grid.Grid'
     ],
-
     models: [
-        'grid.UserDrawing'
+        'UserDrawing'
     ],
     stores: [
-        'GISData'
+        'UserDrawings'
     ],
     
     
     launch: function () {
         var viewport = Ext.create('Ext.container.Viewport', {
-            layout: 'fit'
+            layout: 'fit',
+            items: [{ xtype: 'main-view'}]
         });
-
-        var container = Ext.create('OpenLayersTest.view.main.Main');
-        viewport.add(container);
 
         var dom = Ext.getDom('appLoadingIndicator');
         dom.parentNode.removeChild(dom);

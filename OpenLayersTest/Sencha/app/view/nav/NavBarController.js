@@ -59,6 +59,7 @@ Ext.define('OpenLayersTest.view.nav.NavBarController', {
         else
         {
             mapView.drawFeature = new ol.interaction.Select();
+            mapView.drawFeature.on('select', mapView.getController().onSelect, mapView.getController());
             mapView.dragBox.setActive(true);
         }
            
@@ -186,12 +187,6 @@ Ext.define('OpenLayersTest.view.nav.NavBarController', {
             }
         });
     },
-    /*
-    onSaveFeatures: function () {
-        //var mapView = Ext.getCmp('map-view');
 
-        //mapView.drawSource.clear();
-    },
-    */
     uniqueID: (function () { var id = 0; return function () { return id++; }})()
 });

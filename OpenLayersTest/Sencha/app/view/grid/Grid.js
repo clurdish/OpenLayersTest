@@ -4,14 +4,11 @@
     title: 'Geospatial Data - User Drawings',
     xtype: 'grid-view',
     requires: [
-        'OpenLayersTest.view.grid.GridViewModel',
+        //'OpenLayersTest.view.grid.GridViewModel',
         'OpenLayersTest.view.grid.GridController'
     ],
     plugins: 'gridfilters',
-    viewModel: 'grid',
-    bind: {
-        store: '{gisData}'
-    },
+
     controller: 'grid',
     
     listeners: {
@@ -25,7 +22,7 @@
     columns: [
         {
             text: 'ID',
-            dataIndex: 'id',
+            dataIndex: 'displayID',
             filter: {
                 type: 'number'
             }

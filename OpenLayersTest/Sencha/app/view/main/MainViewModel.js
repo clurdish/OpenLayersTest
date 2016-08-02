@@ -2,6 +2,12 @@
     extend: 'Ext.app.ViewModel',
     alias: 'viewmodel.main',
 
+    requires: ['OpenLayersTest.store.UserDrawings'],
+
+    stores: {
+        userdrawings: 'UserDrawings'
+    },
+
     data: {
         counties: false,
         congress: false,
