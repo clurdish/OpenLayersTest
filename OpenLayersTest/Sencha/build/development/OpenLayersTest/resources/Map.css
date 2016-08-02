@@ -1,0 +1,43 @@
+﻿
+.popup-window {
+	border-radius: 5px;
+	background-color: rgba(255, 255, 255, .85);
+	width: 150px;
+    height: 200px;
+    padding: 5px 5px 5px 5px;
+    box-shadow: 2px 2px 8px rgba(100,100,100, .5);
+}
+
+.close-x {
+    color: rgba(100, 100, 100, 1);
+    font-size: medium;
+    float: right;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 5px 5px 0px 0px;
+}
+.close-x:hover {
+    color: rgba(100, 100, 100, 0.5);
+    cursor: pointer;
+}
+
+/*** NavBar ***/
+
+.save-button {
+    background-color: #008000 !important;
+}
+.save-button:hover {
+    background-color: #006600 !important;
+}
+.save-button:active {
+    background-color: #004d00 !important;
+}
+
+.delete-button {
+    background-color: #e60000 !important;
+}
+.delete-button:hover {
+    background-color: #cc0000 !important;
+}
+.delete-button:active {
+    background-color: #b30000 !important;
+}

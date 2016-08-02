@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ExcludeFromPackageFolders Include="C:\Users\petzoldt\documents\visual studio 2013\Projects\OpenLayersTest\OpenLayersTest\Sencha" />
+    <ExcludeFromPackageFolders Include="C:\Users\petzoldt\documents\visual studio 2013\Projects\OpenLayersTest\OpenLayersTest\Sencha" />
+  </ItemGroup>
+  <PropertyGroup>
+    <PipelineDependsOn>
+      CustomBeforePublish;
+      $(PipelineDependsOn);
+    </PipelineDependsOn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <CopyAllFilesToSingleFolderForPackageDependsOn>
+      CustomCollectFiles;
+      $(CopyAllFilesToSingleFolderForPackageDependsOn);
+    </CopyAllFilesToSingleFolderForPackageDependsOn>
+    <CopyAllFilesToSingleFolderForMsdeployDependsOn>
+      CustomCollectFiles;
+      $(CopyAllFilesToSingleFolderForPackageDependsOn);
+    </CopyAllFilesToSingleFolderForMsdeployDependsOn>
+  </PropertyGroup>
+  <Target Name="CustomCollectFiles">
+    <ItemGroup>
+      <_CustomFiles Include="Sencha\build\production\OpenLayersTest\**\*;Sencha\build\production\OpenLayersTest\**\*" />
+      <FilesForPackagingFromProject Include="%(_CustomFiles.Identity)">
+        <DestinationRelativePath>%(RecursiveDir)%(Filename)%(Extension)</DestinationRelativePath>
+      </FilesForPackagingFromProject>
+    </ItemGroup>
+  </Target>
+  <Target Name="CustomBeforePublish">
+    <Exec Command="C:\Users\petzoldt\bin\Sencha\Cmd\6.1.2.15\sencha.exe app build" ConsoleToMSBuild="true" WorkingDirectory="C:\Users\petzoldt\documents\visual studio 2013\Projects\OpenLayersTest\OpenLayersTest\Sencha">
+      <Output TaskParameter="ConsoleOutput" PropertyName="OutputOfExec" />
+    </Exec>
+  </Target>
+</Project>

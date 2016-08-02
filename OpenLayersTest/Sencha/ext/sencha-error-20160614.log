@@ -1,0 +1,57 @@
+Sencha Cmd 6.1.2.15 - Crash report
+================================================
+An error occurred while executing the following command: -sdk c:/ext-6.0.2 generate app AppName c:\users\petzoldt\extjs
+
+Diagnostic information:
+=======================
+                          cmd.config.dir : C:\Users\petzoldt\bin\Sencha\Cmd\6.1.2.15         
+                                 cmd.dir : C:\Users\petzoldt\bin\Sencha\Cmd\6.1.2.15         
+                            cmd.jvm.args : -Xms128m -Xmx1024m -Dapple.awt.UIElement=true     
+              cmd.merge.tool.args.araxis : -wait -merge -3 -a1 {base} {user} {generated} {out}
+              cmd.merge.tool.args.kdiff3 : {base} {user} {generated} -o {out}                
+             cmd.merge.tool.args.p4merge : {base} {user} {generated} {out}                   
+           cmd.merge.tool.args.smartsync : {user} {generated} {base}                         
+          cmd.merge.tool.args.sourcegear : --merge --result={out} {user} {base} {generated}  
+            cmd.merge.tool.args.tortoise : -base:{base} -theirs:{generated} -mine:{user} -merged:{out}
+                              cmd.minver : 3.0.0.0                                           
+                            cmd.platform : windows                                           
+                         cmd.server.port : 1841                                              
+                     cmd.unicode.escapes : C:\Users\petzoldt\bin\Sencha\Cmd\6.1.2.15/unicode-escapes.json
+                             cmd.version : 6.1.2.15                                          
+                            cmd.web.port : 1841                                              
+                       inspector.address : http://localhost:1839/                            
+                          repo.local.dir : C:\Users\petzoldt\bin\Sencha\Cmd\repo             
+        system.java.net.useSystemProxies : true                                              
+
+Exception information:
+=======================
+com.sencha.exceptions.ExState: Not a framework directory : c:/ext-6.0.2
+     at com.sencha.cli.AbstractCommand$Property.set(AbstractCommand.java:408)
+     at com.sencha.cli.AbstractCommand.processConfigParam(AbstractCommand.java:530)
+     at com.sencha.cli.AbstractCommand.configure(AbstractCommand.java:114)
+     at com.sencha.command.Sencha.main(Sencha.java:135)
+     at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+     at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+     at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+     at java.lang.reflect.Method.invoke(Unknown Source)
+     at com.exe4j.runtime.LauncherEngine.launch(Unknown Source)
+     at com.exe4j.runtime.WinLauncher.main(Unknown Source)
+     at com.install4j.runtime.launcher.WinLauncher.main(Unknown Source)
+   Caused by: Not a framework directory : c:/ext-6.0.2
+     at com.sencha.command.Sencha.setSdkPath(Sencha.java:427)
+     at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+     at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+     at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+     at java.lang.reflect.Method.invoke(Unknown Source)
+     at com.sencha.cli.AbstractCommand$Property.set(AbstractCommand.java:396)
+     at com.sencha.cli.AbstractCommand.processConfigParam(AbstractCommand.java:530)
+     at com.sencha.cli.AbstractCommand.configure(AbstractCommand.java:114)
+     at com.sencha.command.Sencha.main(Sencha.java:135)
+     at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+     at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+     at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+     at java.lang.reflect.Method.invoke(Unknown Source)
+     at com.exe4j.runtime.LauncherEngine.launch(Unknown Source)
+     at com.exe4j.runtime.WinLauncher.main(Unknown Source)
+     at com.install4j.runtime.launcher.WinLauncher.main(Unknown Source)
+
